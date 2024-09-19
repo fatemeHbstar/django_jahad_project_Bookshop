@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load mathfilters %}
+{% block header_reference %}
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% endblock %}
+{% block content_page %}
+    <div class="container" style="direction: rtl; font-family: 'B Nazanin';">
+        <h1>نویسندگان</h1>
+        <hr>
+        {% for author in authors %}
+            	<div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{{ author.image_url }}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ author.name }}</h3>
+                                <br>
+                                <p>ملیت:  {{ author.nationality }}</p>
+                                <p>سال تولد:  {{ author.year_of_birth }}</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        {% endfor %}
+        <hr>
+        <hr>
+    </div>
+        
+    </div>
+
+{% endblock %}

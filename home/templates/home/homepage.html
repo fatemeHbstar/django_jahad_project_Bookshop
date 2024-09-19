@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block header_reference %}
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% endblock %}
+{% block content_page %}
+    <div class="container">
+        {% include "home/firstCarousel.html" %}
+        <br>
+        <a class="nav-link" href="best_sellers/" style="display:inline; direction: rtl;">
+            <h3 style="font-weight: bolder; font-family: 'B Nazanin';">پرفروش ترین ها</h3><span style="margin-right:98%;font-size: 20px;">همه</span>
+        </a>
+        <br>
+        {% include "home/cards.html" %}
+        <br>
+        <a class="nav-link" href="fiction_books/" style="display:inline; direction: rtl;">
+            <h3 style="font-weight: bolder; font-family: 'B Nazanin';">کتاب های داستانی / رمان</h3><span style="margin-right:98%;font-size: 20px;">همه</span>
+        </a>
+        <br>
+        {% include "home/cards1.html" %}
+        <br>
+        <a class="nav-link" href="authors/" style="display:inline; direction: rtl;">
+            <h3 style="font-weight: bolder; font-family: 'B Nazanin';">برخی از نویسندگان</h3><span style="margin-right:98%;font-size: 20px;">همه</span>
+        </a>
+        <br>
+        {% include "home/cards3.html" %}
+        <br>
+        {% include "home/secondCarousel.html" %}
+        <br>
+        <a class="nav-link" href="study_books/" style="display:inline; direction: rtl;">
+            <h3 style="font-weight: bolder; font-family: 'B Nazanin';">کتاب های درسی</h3><span style="margin-right:98%;font-size: 20px;">همه</span>
+        </a>
+        <br>
+        {% include "home/cards2.html" %}
+        <br>
+    </div>
+
+{% endblock %}

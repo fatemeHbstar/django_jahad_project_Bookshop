@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load mathfilters %}
+{% block header_reference %}
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% endblock %}
+{% block content_page %}
+    <div class="container" style="direction: rtl; font-family: 'B Nazanin';">
+        <h1>کتاب های درسی</h1>
+        <hr>
+        {% for book in books %}
+            {% if book.type == 'درسی' %}
+            	<div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{{ book.image_url }}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ book.title }}</h3>
+                                <br>
+                                <p>{{ book.description }}</p>
+                                <p>{{ book.genre }}</p>
+                                <p style="text-decoration: line-through;">{{ book.price|mul:1.2 }}&nbsp;&nbsp;<span>تومان</span></p>
+                                <p>
+                                    <span style="margin-left: 50%;">{{ book.price }}&nbsp;&nbsp;<span>تومان</span></span>
+
+                                    <form method="post" action="{% url 'cart:add_to_cart' book.id %}">
+                                        {% csrf_token %}
+                                            <div class="input-group" style="direction: ltr">
+
+                                            <input name="quantity" type="number" min="1" max="999" class="form-control form-size" placeholder="Quantity">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-warning" type="submit">خرید&nbsp;&nbsp;<i class="fa fa-shopping-cart"></i></button>
+                                            </span>
+                                            </div>
+                                    </form>
+                                </p>
+                                <a href="/cart/"> مشاهده سبد خرید</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+        {% endfor %}
+        <hr>
+        <hr>
+    </div>
+        
+    </div>
+
+{% endblock %}

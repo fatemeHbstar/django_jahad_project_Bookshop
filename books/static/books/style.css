@@ -1,0 +1,187 @@
+/* Importing Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Defining Custome Variables */
+:root {
+    /* Colors */
+    --primary-color: #3b141c;
+    --secondary-color: #f3961c;
+    --dark-color: #252525;
+    --white-color: #fff;
+    --light-gray-color: #f2f2f2;
+
+    /* Site Max-Width */
+    --site-max-width: 1300px;
+}
+
+/* CSS styles */
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+        }
+/* Setting for the whole website */
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+        .container {
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            right: 0;
+            background-color: #fff;
+            color: #333;
+            padding: 10px;
+            text-align: center;
+            z-index: 1000;
+        }
+        header .logo {
+            display: flex;
+            margin-right: 0;
+        }
+        .logo .logo-image {
+            width: 250px; /* set the logo image width */
+            height: 80px; /* set the logo image height */
+            object-fit: contain; /* ensure the logo image is scaled properly */
+            margin-right: 0;
+            border-radius: 5px; /* add a slight border radius to the logo image */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* add a subtle box shadow to the logo image */
+        }
+        header .search-bar {
+            height: 40px;
+            width: 60%;
+            display: flex; /* make the search bar a flex container */
+            align-items: center; /* vertically center the search bar components */
+            margin: 10px; /* add some space between the logo and the search bar */
+            padding: 10px; /* add some padding around the search bar */
+            padding-left: 0;
+            border: 1px solid #333; /* add a subtle border around the search bar */
+            border-radius: 100px; /* add a rounded corner effect to the search bar */
+            background-color: #f7f7f7; /* add a light gray background color to the search bar */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* add a subtle box shadow to the search bar */
+        }
+        .search-bar .search-form {
+            flex-grow: 1;
+            display: flex; /* make the search form a flex container */
+            align-items: center; /* vertically center the search form components */
+            width: 100%; /* make the search form take up the full width */
+        }
+        .search-input {
+            outline: none;
+            color: #000;
+            flex: 1; /* make the search input take up the available space */
+            padding: 10px; /* add some padding around the search input */
+            border: none; /* remove the default border */
+            border-radius: 10px; /* add a rounded corner effect to the search input */
+            font-size: 16px; /* set the font size of the search input */
+            font-family: Arial, sans-serif; /* set the font family of the search input */
+            cursor: pointer;
+        }
+        .search-input:focus {
+            border-color: #ff0000;
+        }
+        .search-button {
+            display: flex;
+            align-items: center;
+            height: 40px;
+            color: #000; /* set the text color of the search button */
+            border: 1px solid #333;
+            border-right: 0;
+            padding: 10px; /* add some padding around the search button */
+            border-radius: 100px 0 0 100px; /* add a rounded corner effect to the search button */
+            cursor: pointer; /* change the cursor to a pointer on hover */
+        }
+        .search-button:hover {
+            background-color: #ee904b; !important;
+        }
+        .search-button i {
+            font-size: 25px; /* set the font size of the search icon */
+            margin-right: 10px; /* add some space between the search icon and the button text */
+        }
+        .icons {
+            display: flex; /* make the icons container a flex container */
+            align-items: center; /* vertically center the icons */
+        }
+
+        .header-button {
+            background-color: transparent; /* make the button background transparent */
+            border: 1px solid #333;
+            border-radius: 50%;
+            margin: 8px;
+            padding: 12px; /* add some padding around the button */
+            cursor: pointer; /* change the cursor to a pointer on hover */
+         }
+
+        .header-button:hover {
+            color: #aaa; /* change the text color on hover */
+         }
+
+        .header-button i {
+            font-size: 25px; /* set the font size of the icon */
+            font-weight: 600;
+        }
+
+        .header-button:not(:last-child) {
+            margin-right: 20px; /* add some space between the buttons */
+        }
+        nav {
+            margin-top: 0px;
+            background-color: #808080;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+        main {
+            margin-top: 80px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            flex-direction: column;
+            align-content: center;
+        }
+        section {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            width: calc(50% - 40px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }

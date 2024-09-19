@@ -1,0 +1,125 @@
+{% load static %}
+{% load mathfilters %}
+<div class="row row-cols-1 row-cols-md-4 g-4" style="font-family: 'B Nazanin';">
+  <div class="col" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.3);">
+    <div class="card h-100">
+        {% for book in books %}
+            {% if book.id == 2 %}
+                <img src="{{ book.image_url }}" class="img-fluid rounded-start" alt="{{ book.title }}" style="height: 100%;">
+                <div class="card-body" style="direction: rtl">
+                    <h3 class="card-title">{{ book.title }}</h3>
+                    <p>
+                        <span style="text-decoration: line-through;">{{ book.price|mul:1.2 }} تومان </span>
+                    </p>
+                    <p>
+                        <span style="margin-left: 50%;">{{ book.price }}&nbsp;&nbsp;<span>تومان</span></span>
+
+                                    <form method="post" action="{% url 'cart:add_to_cart' book.id %}">
+                                        {% csrf_token %}
+                                            <div class="input-group" style="direction: ltr">
+
+                                            <input name="quantity" type="number" min="1" max="999" class="form-control form-size" placeholder="Quantity">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-warning" type="submit">خرید&nbsp;&nbsp;<i class="fa fa-shopping-cart"></i></button>
+                                            </span>
+                                            </div>
+                                    </form>
+                    </p>
+                    <a href="/cart/"> مشاهده سبد خرید</a>
+            	{% endif %}
+            {% endfor %}
+        </div>
+    </div>
+  </div>
+  <div class="col" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.3);">
+    <div class="card h-100">
+        {% for book in books %}
+            {% if book.id == 3 %}
+                <img src="{{ book.image_url }}" class="img-fluid rounded-start" alt="{{ book.title }}" style="height: 100%;">
+                <div class="card-body" style="direction: rtl">
+
+                    <h3 class="card-title">{{ book.title }}</h3>
+                    <p>
+                        <span style="text-decoration: line-through;">{{ book.price|mul:1.2 }} تومان </span>
+                    </p>
+                    <p>
+                        <span style="margin-left: 50%;">{{ book.price }}&nbsp;&nbsp;<span>تومان</span></span>
+
+                                    <form method="post" action="{% url 'cart:add_to_cart' book.id %}">
+                                        {% csrf_token %}
+                                            <div class="input-group" style="direction: ltr">
+
+                                            <input name="quantity" type="number" min="1" max="999" class="form-control form-size" placeholder="Quantity">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-warning" type="submit">خرید&nbsp;&nbsp;<i class="fa fa-shopping-cart"></i></button>
+                                            </span>
+                                            </div>
+                                    </form>
+                    </p>
+                    <a href="/cart/"> مشاهده سبد خرید</a>
+            	{% endif %}
+            {% endfor %}
+        </div>
+    </div>
+  </div>
+  <div class="col" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.3);">
+    <div class="card h-100">
+        {% for book in books %}
+            {% if book.id == 5 %}
+                <img src="{{ book.image_url }}" class="img-fluid rounded-start" alt="{{ book.title }}" style="height: 100%;">
+                <div class="card-body" style="direction: rtl">
+                    <h3 class="card-title">{{ book.title }}</h3>
+                    <p>
+                        <span style="text-decoration: line-through;">{{ book.price|mul:1.2 }} تومان </span>
+                    </p>
+                    <p>
+                        <span style="margin-left: 50%;">{{ book.price }}&nbsp;&nbsp;<span>تومان</span></span>
+
+                                    <form method="post" action="{% url 'cart:add_to_cart' book.id %}">
+                                        {% csrf_token %}
+                                            <div class="input-group" style="direction: ltr">
+
+                                            <input name="quantity" type="number" min="1" max="999" class="form-control form-size" placeholder="Quantity">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-warning" type="submit">خرید&nbsp;&nbsp;<i class="fa fa-shopping-cart"></i></button>
+                                            </span>
+                                            </div>
+                                    </form>
+                    </p>
+                    <a href="/cart/"> مشاهده سبد خرید</a>
+            	{% endif %}
+            {% endfor %}
+        </div>
+    </div>
+  </div>
+  <div class="col" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.3);">
+    <div class="card h-100">
+        {% for book in books %}
+            {% if book.id == 6 %}
+                <img src="{{ book.image_url }}" class="img-fluid rounded-start" alt="{{ book.title }}" style="height: 100%;">
+                <div class="card-body" style="direction: rtl">
+                    <h3 class="card-title">{{ book.title }}</h3>
+                    <p>
+                        <span style="text-decoration: line-through;">{{ book.price|mul:1.2 }} تومان </span>
+                    </p>
+                    <p>
+                        <span style="margin-left: 50%;">{{ book.price }}&nbsp;&nbsp;<span>تومان</span></span>
+
+                                    <form method="post" action="{% url 'cart:add_to_cart' book.id %}">
+                                        {% csrf_token %}
+                                            <div class="input-group" style="direction: ltr">
+
+                                            <input name="quantity" type="number" min="1" max="999" class="form-control form-size" placeholder="Quantity">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-warning" type="submit">خرید&nbsp;&nbsp;<i class="fa fa-shopping-cart"></i></button>
+                                            </span>
+                                            </div>
+                                    </form>
+                    </p>
+                    <a href="/cart/"> مشاهده سبد خرید</a>
+            	{% endif %}
+            {% endfor %}
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% load mathfilters %}
+{% block header_reference %}
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block content_page %}
+  <div class="container" style="direction: rtl; font-family: 'B Nazanin'">
+    <table class="table table-bordered table-striped-columns"  style="font-size: large">
+        <thead style="font-size: larger">
+        <tr>
+            <th>نام</th>
+            <th>توضیحات</th>
+            <th>تعداد</th>
+            <th>قیمت</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in cart_items %}
+            <tr>
+                <td>{{ item.product.title }}</td>
+                <td>{{ item.product.genre }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.product.price }}</td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>جمع کل</td>
+            <td>{{ total }}</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <form role="form" method="post" id="payment-form" action="{% url 'checkout:checkout' %}">
+
+    <legend>جزییات پرداخت</legend>
+
+    <div id="credit-card-errors" style="display:none">
+      <div class="alert-message block-message error" id="stripe-error-message"></div>
+    </div>
+
+    <div class="form-group col-md-6">
+        {{ order_form }}
+    </div>
+
+    <div class="form-group col-md-6">
+        {{ payment_form }}
+    </div>
+
+    {% csrf_token %}
+    <div class="form-group col-md-12">
+      <input class="btn btn-success" id="submit_payment_btn" name="commit" type="submit" value="ثبت پرداخت">
+    </div>
+
+    </form>
+   </div>
+{% endblock %}

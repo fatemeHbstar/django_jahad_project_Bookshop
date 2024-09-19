@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+{% load mathfilters %}
+{% block header_reference %}
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block content_page %}
+<div class="container" style="direction: rtl; font-family: 'B Nazanin'">
+{% for item in cart_items %}
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{ item.product.image_url }}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body" style="font-size: 22px;">
+
+        	<p>{{ item.product.title }}</p>
+            <p> {{ item.product.price }}  تومان </p>
+            <p>
+                <form class="form-inline" method="post" action="{% url 'cart:adjust_cart' item.id %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input name="quantity" type="number" min="0" max="999" class="form-control"  placeholder="تعداد">
+                            <div class="input-group-addon">{{ item.quantity }}</div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
+                </form>
+            </p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+<hr><br>
+<div class="col">
+    <div>
+        <h3 style="align-items: center ;">مبلغ کل: {{ total }} تومان
+            <a href="{% url 'checkout:checkout' %}" class="btn btn-success" role="button" style="font-size: 18px; padding: 5px 20px 5px 20px;">پرداخت</a>
+        </h3>
+    </div>
+    <a href="{% url 'cart:empty_cart' %}" style="margin-right:85%;font-size: 22px;">خالی کردن سبد</a>
+    <hr>
+    </div>
+</div>
+
+
+{% endblock %}
