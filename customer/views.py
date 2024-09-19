@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 
 from books.models import Book
 from .forms import UserRegisterForm, UserLoginForm
@@ -17,7 +17,7 @@ def signin(request):
             User.objects.create_user(username=data['username'],
                                      email=data['email'],
                                      password=data['password_2'])
-            return redirect('customer:customer_page')
+            return redirect('customer:login')
     else:
         form_register = UserRegisterForm()
     context = {'form_register': form_register}
